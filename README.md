@@ -168,6 +168,8 @@
           <?= $pager->only(['q'])->links(); ?>
 
 ![image](https://github.com/user-attachments/assets/ee286eb8-c4b2-4f86-8646-28113f3386e0)
+![image](https://github.com/user-attachments/assets/59d009ef-df83-4233-ac48-7af89fe7c0b8)
+
 
 
 
