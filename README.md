@@ -130,6 +130,44 @@
 
 
 
+# PRAKTIKUM 5
+
+### kemudian modifikasi kode pada method admin_index
+### tambahkan file views/artikel/admin_index.php
+          <?= $pager->links(); ?>
+![image](https://github.com/user-attachments/assets/209c391b-9521-4bc0-ae57-e7673aa780ce)
+
+### Membuat Pencarian
+### buka kembali Controller Artikel, pada method admin_index ubah kodenya seperti berikut
+                      public function admin_index()
+                      {
+                      $title = 'Daftar Artikel';
+                      $q = $this->request->getVar('q') ?? '';
+                      $model = new ArtikelModel();
+                      $data = [
+                      'title' => $title,
+                      'q' => $q,
+                      'artikel' => $model->like('judul', $q)->paginate(10), # data
+                      dibatasi 10 record per halaman
+                      'pager' => $model->pager,
+                      ];
+                      return view('artikel/admin_index', $data);
+                      }
+                      <form method="get" class="form-search">
+                      <input type="text" name="q" value="<?= $q; ?>" placeholder="Cari data">
+                      <input type="submit" value="Cari" class="btn btn-primary">
+                      </form>
+
+### buka kembali file views/artikel/admin_index.php
+            <form method="get" class="form-search">
+            <input type="text" name="q" value="<?= $q; ?>" placeholder="Cari data">
+            <input type="submit" value="Cari" class="btn btn-primary">
+            </form>
+
+### Dan pada link pager ubah seperti berikut.
+          <?= $pager->only(['q'])->links(); ?>
+
+![image](https://github.com/user-attachments/assets/ee286eb8-c4b2-4f86-8646-28113f3386e0)
 
 
 
