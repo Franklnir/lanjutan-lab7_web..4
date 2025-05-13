@@ -171,6 +171,42 @@
 ![image](https://github.com/user-attachments/assets/59d009ef-df83-4233-ac48-7af89fe7c0b8)
 
 
+# PRAKTIKUM 6
+### edit kembali Controller Artikel pada project sebelumnya, sesuaikan kode pada method add seperti berikut:
+                                  public function add()
+                                  {
+                                  // validasi data.
+                                  $validation = \Config\Services::validation();
+                                  $validation->setRules(['judul' => 'required']);
+                                  $isDataValid = $validation->withRequest($this->request)->run();
+                                  if ($isDataValid)
+                                  {
+                                  $file = $this->request->getFile('gambar');
+                                  $file->move(ROOTPATH . 'public/gambar');
+                                  $artikel = new ArtikelModel();
+                                  $artikel->insert([
+                                  'judul' => $this->request->getPost('judul'),
+                                  'isi' => $this->request->getPost('isi'),
+                                  'slug' => url_title($this->request->getPost('judul')),
+                                  'gambar' => $file->getName(),
+                                  ]);
+                                  return redirect('admin/artikel');
+                                  }
+                                  $title = "Tambah Artikel";
+                                  return view('artikel/form_add', compact('title'));
+                                  }
+### pada file views/artikel/form_add.php tambahkan field
+                  <p>
+                  <input type="file" name="gambar">
+                  </p>
+### sesuaikan tag form dengan menambahkan ecrypt type seperti berikut.
+                        <form action="" method="post" enctype="multipart/form-data">
+![image](https://github.com/user-attachments/assets/a224d516-4ed9-4841-98ce-ed79e8bbd671)
+
+
+
+
+
 
 
                                                                                             
