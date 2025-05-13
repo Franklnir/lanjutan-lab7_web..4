@@ -78,5 +78,40 @@
 ### php spark db:seed UserSeeder
 
 ![image](https://github.com/user-attachments/assets/8fb64c3c-e194-45ea-9efb-f633f2bc9577)
+
+### Auth.php pada direktori app/Filters.
+                          <?php
+                          
+                          namespace App\Filters;
+                          
+                          use CodeIgniter\HTTP\RequestInterface;
+                          use CodeIgniter\HTTP\ResponseInterface;
+                          use CodeIgniter\Filters\FilterInterface;
+                          
+                          class Auth implements FilterInterface
+                          {
+                              public function before(RequestInterface $request, $arguments = null)
+                              {
+                                  // Jika user belum login, redirect ke halaman login
+                                  if (! session()->get('logged_in')) {
+                                      return redirect()->to('/user/login');
+                                  }
+                              }
+                          
+                              public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
+                              {
+                                  // Tidak melakukan apa-apa setelah response
+                              }
+                          }
+
+
+### buka file app/Config/Filters.php tambahkan kode berikut:
+        'auth' => App\Filters\Auth::class
+### buka file app/Config/Routes.php dan sesuaikan kodenya.
+![image](https://github.com/user-attachments/assets/75601b1d-9bfa-4034-91aa-a6c17a5c7692)
+![image](https://github.com/user-attachments/assets/6b842180-fccc-4d9f-ae6c-97f681c607d8)
+
+
+
                                                                                             
                                               
