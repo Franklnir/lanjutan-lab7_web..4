@@ -110,6 +110,26 @@
 ### buka file app/Config/Routes.php dan sesuaikan kodenya.
 ![image](https://github.com/user-attachments/assets/75601b1d-9bfa-4034-91aa-a6c17a5c7692)
 ![image](https://github.com/user-attachments/assets/6b842180-fccc-4d9f-ae6c-97f681c607d8)
+![image](https://github.com/user-attachments/assets/332bae95-8f54-467b-8bb5-7b6776e5cfc0)
+
+### Tugas Lanjutan (Improvisasi)
+                    public function logout()
+                    {
+                        session()->destroy();
+                        return redirect()->to('/user/login')->with('message', 'Berhasil logout.');
+                    }
+
+### di halaman login (Views/user/login.php)
+                            <?php if (session()->getFlashdata('message')): ?>
+                                <div class="alert alert-success">
+                                    <?= session()->getFlashdata('message') ?>
+                                </div>
+                            <?php endif; ?>
+
+![image](https://github.com/user-attachments/assets/7d2e71b2-10f7-42b6-ac3f-a1f5042f17a4)
+
+
+
 
 
 
