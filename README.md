@@ -75,6 +75,9 @@
 
 
 ### langkah 4.buka file UserSeeder.php yang berada di lokasi direktori /app/Database/Seeds/UserSeeder.php
+![image](https://github.com/user-attachments/assets/0bce01dd-d237-4da1-86c9-dcfa13d8fe29)
+![image](https://github.com/user-attachments/assets/3b6ba582-16c1-4121-b3f7-6e7da89dc9ce)
+
 ### langkah 5.php spark db:seed UserSeeder
 
 ![image](https://github.com/user-attachments/assets/8fb64c3c-e194-45ea-9efb-f633f2bc9577)
