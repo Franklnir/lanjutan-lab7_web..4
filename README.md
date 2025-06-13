@@ -1,10 +1,10 @@
 # lanjutan-lab7_web..4
 
 # PRAKTIKUM 4
-### buat table user
+### langkah 1.buat table user
 ![image](https://github.com/user-attachments/assets/ceffb2a4-e1e9-4e23-bd95-b9cf0d6a62af)
 
-### Buat file baru pada direktori app/Models dengan nama UserModel.php
+### langkah 2.Buat file baru pada direktori app/Models dengan nama UserModel.php
                 <?php
                 namespace App\Models;
                 use CodeIgniter\Model;
@@ -16,7 +16,7 @@
                 protected $allowedFields = ['username', 'useremail', 'userpassword'];
                 }
 
-### buat nama User.php pada direktori app/Controllers.
+### langkah 2.buat nama User.php pada direktori app/Controllers.
                                               <?php
                                               namespace App\Controllers;
                                               use App\Models\UserModel;
@@ -69,17 +69,17 @@
                                               }
                                               }
 
-###  Buat direktori baru dengan nama user pada direktori app/views, kemudian buat file baru dengan nama login.php.
+###  langkah 3.Buat direktori baru dengan nama user pada direktori app/views, kemudian buat file baru dengan nama login.php.
 ### Membuat Database Seeder 
           php spark make:seeder UserSeeder
 
 
-### buka file UserSeeder.php yang berada di lokasi direktori /app/Database/Seeds/UserSeeder.php
-### php spark db:seed UserSeeder
+### langkah 4.buka file UserSeeder.php yang berada di lokasi direktori /app/Database/Seeds/UserSeeder.php
+### langkah 5.php spark db:seed UserSeeder
 
 ![image](https://github.com/user-attachments/assets/8fb64c3c-e194-45ea-9efb-f633f2bc9577)
 
-### Auth.php pada direktori app/Filters.
+### langkah 6.Auth.php pada direktori app/Filters.
                           <?php
                           
                           namespace App\Filters;
@@ -105,21 +105,21 @@
                           }
 
 
-### buka file app/Config/Filters.php tambahkan kode berikut:
+### langkah 7.buka file app/Config/Filters.php tambahkan kode berikut:
         'auth' => App\Filters\Auth::class
-### buka file app/Config/Routes.php dan sesuaikan kodenya.
+### langkah 8.buka file app/Config/Routes.php dan sesuaikan kodenya.
 ![image](https://github.com/user-attachments/assets/75601b1d-9bfa-4034-91aa-a6c17a5c7692)
 ![image](https://github.com/user-attachments/assets/6b842180-fccc-4d9f-ae6c-97f681c607d8)
 ![image](https://github.com/user-attachments/assets/332bae95-8f54-467b-8bb5-7b6776e5cfc0)
 
-### Tugas Lanjutan (Improvisasi)
+### langkah 8.Tugas Lanjutan (Improvisasi)
                     public function logout()
                     {
                         session()->destroy();
                         return redirect()->to('/user/login')->with('message', 'Berhasil logout.');
                     }
 
-### di halaman login (Views/user/login.php)
+### langkah 9.di halaman login (Views/user/login.php)
                             <?php if (session()->getFlashdata('message')): ?>
                                 <div class="alert alert-success">
                                     <?= session()->getFlashdata('message') ?>
@@ -132,13 +132,16 @@
 
 # PRAKTIKUM 5
 
-### kemudian modifikasi kode pada method admin_index
-### tambahkan file views/artikel/admin_index.php
+### langkah 1.kemudian modifikasi kode pada method admin_index
+### langkah 2.tambahkan file views/artikel/admin_index.php
           <?= $pager->links(); ?>
 ![image](https://github.com/user-attachments/assets/209c391b-9521-4bc0-ae57-e7673aa780ce)
 
-### Membuat Pencarian
-### buka kembali Controller Artikel, pada method admin_index ubah kodenya seperti berikut
+### langkah 3.Membuat Pencarian
+![image](https://github.com/user-attachments/assets/7b7fc150-8d51-4da9-90cc-cbfbdd74303d)
+![image](https://github.com/user-attachments/assets/75e9f114-3cf1-43a4-a813-8655ade6638d)
+
+### langkah 4.buka kembali Controller Artikel, pada method admin_index ubah kodenya seperti berikut
                       public function admin_index()
                       {
                       $title = 'Daftar Artikel';
@@ -158,13 +161,13 @@
                       <input type="submit" value="Cari" class="btn btn-primary">
                       </form>
 
-### buka kembali file views/artikel/admin_index.php
+### langkah 5.buka kembali file views/artikel/admin_index.php
             <form method="get" class="form-search">
             <input type="text" name="q" value="<?= $q; ?>" placeholder="Cari data">
             <input type="submit" value="Cari" class="btn btn-primary">
             </form>
 
-### Dan pada link pager ubah seperti berikut.
+### langkah 6.Dan pada link pager ubah seperti berikut.
           <?= $pager->only(['q'])->links(); ?>
 
 ![image](https://github.com/user-attachments/assets/ee286eb8-c4b2-4f86-8646-28113f3386e0)
@@ -172,7 +175,7 @@
 
 
 # PRAKTIKUM 6
-### edit kembali Controller Artikel pada project sebelumnya, sesuaikan kode pada method add seperti berikut:
+### langkah 1.edit kembali Controller Artikel pada project sebelumnya, sesuaikan kode pada method add seperti berikut:
                                   public function add()
                                   {
                                   // validasi data.
@@ -195,11 +198,11 @@
                                   $title = "Tambah Artikel";
                                   return view('artikel/form_add', compact('title'));
                                   }
-### pada file views/artikel/form_add.php tambahkan field
+### langkah 2.pada file views/artikel/form_add.php tambahkan field
                   <p>
                   <input type="file" name="gambar">
                   </p>
-### sesuaikan tag form dengan menambahkan ecrypt type seperti berikut.
+### langkah 3.sesuaikan tag form dengan menambahkan ecrypt type seperti berikut.
                         <form action="" method="post" enctype="multipart/form-data">
 ![image](https://github.com/user-attachments/assets/a224d516-4ed9-4841-98ce-ed79e8bbd671)
 
