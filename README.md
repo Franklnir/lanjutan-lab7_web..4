@@ -209,6 +209,9 @@ menambah tampilan login
                   <p>
                   <input type="file" name="gambar">
                   </p>
+
+![image](https://github.com/user-attachments/assets/f569b868-4f15-4319-8c82-ad215c3dd5bc)
+
 ### langkah 3.sesuaikan tag form dengan menambahkan ecrypt type seperti berikut.
                         <form action="" method="post" enctype="multipart/form-data">
 ![image](https://github.com/user-attachments/assets/a224d516-4ed9-4841-98ce-ed79e8bbd671)
